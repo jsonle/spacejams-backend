@@ -22,6 +22,6 @@ class UsersController < ApplicationController
         @user = User.find_or_create_by(spotify_id: user_params["id"], display_name: user_params["display_name"], profile_image: user_params["images"][0]["url"])
         @user.update(access_token: auth_params["access_token"], refresh_token: auth_params["refresh_token"])
 
-        redirect_to "http://localhost:4000/#" + auth_params.to_query
+        render json: @user
     end
 end
