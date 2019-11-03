@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2019_10_31_202733) do
     t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
     t.string "display_name"
     t.string "profile_image"
+    t.string "spotify_id"
   end
 
 end

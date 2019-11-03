@@ -5,7 +5,7 @@ class AuthController < ApplicationController
         query_params = {
           client_id: Rails.application.credentials.spotify[:client_id],
           response_type: 'code',
-          redirect_uri: 'http://localhost:3000/user',
+          redirect_uri: 'http://localhost:3000/callback',
           scope: "user-library-read 
           playlist-read-collaborative
           playlist-modify-private
@@ -19,6 +19,4 @@ class AuthController < ApplicationController
         redirect_to "#{url}?#{query_params.to_query}"
     end
 
-    def show
-    end
 end

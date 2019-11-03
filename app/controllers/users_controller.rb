@@ -19,9 +19,9 @@ class UsersController < ApplicationController
         user_response = RestClient.get("https://api.spotify.com/v1/me", header)
         user_params = JSON.parse(user_response.body)
 
-        @user = User.find_or_create_by(username: user_params["id"], display_name: user_params["display_name"], profile_image: user_params["images"][0]["url"])
+        @user = User.find_or_create_by(spotify_id: user_params["id"], display_name: user_params["display_name"], profile_image: user_params["images"][0]["url"])
         @user.update(access_token: auth_params["access_token"], refresh_token: auth_params["refresh_token"])
 
-        render json: @user
+        redirect_to "http://localhost:4000/#" + auth_params.to_query
     end
 end
