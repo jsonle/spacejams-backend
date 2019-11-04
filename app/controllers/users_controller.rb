@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         img_url = user_data["images"][0] ? user_data["images"][0]["url"] : nil
 
 
-        user = User.create(user_params(user_data))
+        user = User.find_or_create_by(user_params(user_data))
         user.update(profile_image: img_url, access_token: auth_params["access_token"], refresh_token: auth_params["refresh_token"])
 
         render json: user
