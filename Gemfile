@@ -42,3 +42,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Rest client gem
 gem 'rest-client'
+
+# Spotify web api gem
+gem 'rspotify'
