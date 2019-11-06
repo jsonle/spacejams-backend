@@ -3,4 +3,9 @@ class RoomsController < ApplicationController
         @rooms = Room.all 
         render json: @rooms.as_json(include: :users)
     end
+
+    def show
+        room = Room.find(params[:id])
+        render json: room.as_json(include: :users)
+    end
 end

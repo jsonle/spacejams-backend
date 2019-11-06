@@ -32,6 +32,12 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def update
+        user = User.find(params[:user][:id])
+        user.update(room_id: params[:user][:room_id])
+        render json: user
+    end
+
     private
 
     def user_params(user_data)
