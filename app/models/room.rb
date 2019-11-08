@@ -1,4 +1,4 @@
 class Room < ApplicationRecord
     has_many :users
-    has_one :chat
+    has_many :messages
 end
