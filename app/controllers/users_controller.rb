@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         body = {
             grant_type: "authorization_code",
             code: params[:code],
-            redirect_uri: 'http://localhost:4000/callback',
+            redirect_uri: Rails.application.credentials.spotify[:redirect_uri],
             client_id: Rails.application.credentials.spotify[:client_id],
             client_secret: Rails.application.credentials.spotify[:client_secret]
         }

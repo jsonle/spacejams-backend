@@ -5,7 +5,7 @@ class AuthController < ApplicationController
         query_params = {
           client_id: Rails.application.credentials.spotify[:client_id],
           response_type: 'code',
-          redirect_uri: 'http://localhost:4000/callback',
+          redirect_uri: Rails.application.credentials.spotify[:redirect_uri],
           scope: "user-read-email",
           show_dialog: true
         }
